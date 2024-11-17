@@ -246,6 +246,34 @@
         typeText();
     }, 11500)
     });
+    // .textLetter text h2
+    let indexText = 0;
+    let textLetter = document.querySelector('.textLetter h2');
+    const textLetterH2 = "";
+    let timoutTextLetter;
+
+    function textCharLetter(){
+        if (indexText < textLetterH2.length) {
+            textLetter.textContent += textLetterH2[indexText];
+            indexText++;
+            setTimeout(indexText, 100);
+        }
+        else{
+            clearInterval(timoutTextLetter);
+            setTimeout(()=>{
+                funcTimeoutLetterContent()
+            },500)
+        }
+    }
+    function funcTimeoutLetter(){
+        indexText = 0; // Reset indexText
+        textLetter.textContent = ''; // Xóa nội dung hiện tại của textLetter
+        clearInterval(timoutTextLetter);
+        timoutTextLetter =  setInterval(()=>{
+                textCharLetter();
+            }, 100)
+    }
+
     // chữ của thư bạn muốn gửi
     let indexTextContent = 0;
     let textLetterContent = document.querySelector('.contentLetter');
